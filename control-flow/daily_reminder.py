@@ -14,11 +14,11 @@ match priority:
     case _:
         reminder = f"'{task}' has an unknown priority level"
 
-# Check if the task is time-bound
+# Modify reminder based on whether it is time-bound
 if time_bound == "yes":
     reminder += " that requires immediate attention today!"
 else:
     reminder += ". Consider completing it when you have free time."
 
-# Print the final reminder
-print("\nReminder:", reminder)
+# MUST begin with "Reminder:" for ALX checker
+print(f"Reminder: {reminder}")
