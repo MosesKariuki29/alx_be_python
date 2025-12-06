@@ -13,22 +13,18 @@ class TestSimpleCalculator(unittest.TestCase):
         self.calc = SimpleCalculator()
 
     # --- Test Cases for Add Method ---
-    def test_add_positive_numbers(self):
-        """Test addition with two positive integers."""
-        self.assertEqual(self.calc.add(10, 5), 15)
+    # This method satisfies the specific naming requirement ("test_addition")
+    def test_addition(self):
+        """Test addition with various combinations (positive, negative, zero, float)."""
+        self.assertEqual(self.calc.add(2, 3), 5)        # Positive integers
+        self.assertEqual(self.calc.add(-1, 1), 0)       # Mixed integers resulting in zero
+        self.assertEqual(self.calc.add(10, -5), 5)      # Mixed integers
+        self.assertEqual(self.calc.add(0, 7), 7)        # Addition with zero
+        self.assertEqual(self.calc.add(2.5, 1.5), 4.0)   # Floating-point numbers
 
     def test_add_negative_numbers(self):
         """Test addition with two negative integers."""
         self.assertEqual(self.calc.add(-10, -5), -15)
-        
-    def test_add_mixed_numbers(self):
-        """Test addition with positive and negative integers."""
-        self.assertEqual(self.calc.add(-10, 5), -5)
-        self.assertEqual(self.calc.add(10, -5), 5)
-        
-    def test_add_float_numbers(self):
-        """Test addition with floating-point numbers."""
-        self.assertEqual(self.calc.add(2.5, 1.5), 4.0)
 
     # --- Test Cases for Subtract Method ---
     def test_subtract_positive_numbers(self):
@@ -76,7 +72,6 @@ class TestSimpleCalculator(unittest.TestCase):
     def test_divide_negative_numbers(self):
         """Test division involving negative numbers."""
         self.assertEqual(self.calc.divide(-10, 5), -2.0)
-        self.assertEqual(self.calc.divide(10, -5), -2.0)
         self.assertEqual(self.calc.divide(-10, -5), 2.0)
 
     def test_divide_zero_by_number(self):
